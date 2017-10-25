@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      <meta charset="utf-8">
+      <title>Forex App</title>
+   </head>
+   <body>
+      <nav class="navbar sticky-top navbar-dark bg-dark">
+         <a class="navbar-brand" href="#">Forex Forge</a>
+         <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+         </form>
+      </nav>
+      {% block content %}
+      {% endblock %}
+   </body>
+</html>
