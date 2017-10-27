@@ -1,0 +1,11 @@
+#quotaBox {
+   margin: 60px auto;
+}
+
+.centerContent {
+   text-align: center;
+}
+
+.showLine {
+   border: solid black;
+}

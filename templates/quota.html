@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-   <p>{{quota}}</p>
+   <div class="row justify-content-center" id="quotaBox" >
+      <div class="col-4 centerContent">
+         <p>Forge Quota Used: {{quota.quota_used}}</p>
+      </div>
+      <div class="col-4 centerContent">
+         <p>Forge Quota Remaining: {{quota.quota_remaining}}</p>
+      </div>
+   </div>
+   <div class="row justify-content-center">
+         <p>Hours Left Before Quota Reset: {{quota.hours_until_reset}}</p>
+   </div>
 </div>
 {% endblock %}

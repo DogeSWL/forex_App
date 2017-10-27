@@ -1,13 +1,12 @@
 from flask import Flask, redirect, render_template
-from utilFuncs import forex_forge
+from app import app
 
-app = Flask(__name__)
-app.config['DEBUG'] = True
+from views import quota
 
-@app.route('/quota')
-def quotaPage():
-    quota = forex_forge.getForgeQuota()
-    return render_template('quota.html',quota=quota)
+
+@app.route('/converter')
+def converterPage():
+    return render_template('converter.html')
 
 @app.route('/index')
 def home():
