@@ -1,8 +1,11 @@
 from flask import Flask, redirect, render_template
-from app import app
+
+from app import app, db
+from models import Users, FxSymbols
 
 from views import quota
 
+import time, datetime
 
 @app.route('/converter')
 def converterPage():
@@ -10,7 +13,9 @@ def converterPage():
 
 @app.route('/index')
 def home():
-    return render_template('index.html')
+    # getting coordinated universal time(UTC)
+    utcTime = datetime.datetime.now(datetime.timezone.utc)
+    return render_template('index.html', utcTime=utcTime)
 
 @app.route('/')
 def index():
