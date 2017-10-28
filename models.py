@@ -12,8 +12,8 @@ class Users(db.Model):
 class FxSymbols(db.Model):
     id = db.Column(db.INTEGER, primary_key=True)
     symbFx = db.Column(db.TEXT)
-    lastUpdate = db.Column(db.TIMESTAMP)
+    lastUpdated = db.Column(db.TIMESTAMP)
 
-    def __init__(self, symbFx, lastUpdate):
+    def __init__(self, symbFx, lastUpdated):
         self.symbFx = symbFx
-        self.lastUpdate = lastUpdate
+        self.lastUpdated = lastUpdated
