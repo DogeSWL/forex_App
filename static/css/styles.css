@@ -2,6 +2,15 @@
    margin: 60px auto;
 }
 
+#listFilterBox {
+   margin: 20px auto 20px auto;
+   width: 93%;
+}
+
+#filterBar {
+   text-align: right;
+}
+
 .centerContent {
    text-align: center;
 }

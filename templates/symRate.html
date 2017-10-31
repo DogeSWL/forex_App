@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+   <div class="row justify-content-between" id="listFilterBox">
+      <div class="col-4">
+         Forex List:
+      </div>
+      <div class="col-4" id="filterBar">
+         Filter: <input type="text" id="fxFilter" placeholder="Search">
+      </div>
+   </div>
+   <div class="centerContent" id="fxSymbols">
+      {% for item in fxList: %}
+         <button type="button" class="btn btn-outline-info fxBtn">{{item}}</button>
+      {% endfor %}
+   </div>
+   <p>Forex List Last-Updated: {{dbFxList.lastUpdated}} UTC</p>
+   <p>Current UTC time: {{utcTime}}</p>
+</div>
+{% endblock %}

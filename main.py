@@ -1,6 +1,6 @@
 from flask import redirect, render_template
 from app import app
-from views import quota, fxSymb, fxRate
+from views import quota, symRate
 
 @app.route('/index')
 def home():

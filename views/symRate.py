@@ -5,7 +5,7 @@ from utilFuncs import randFuncs, forex_forge
 
 import datetime
 
-@app.route('/fxSymb', methods=['GET'])
+@app.route('/symRate', methods=['GET'])
 def symbPage():
     fxSymb = FxSymbols.query.all()
     aMsg = ""
@@ -14,7 +14,7 @@ def symbPage():
     # if table is empty, popluate table with current Forge FX list and UTC time
     if not fxSymb:
         aMsg = "list is empty"
-        
+
         # get symbols from Forge, sort it alphabetically and then turn list into a string
         add_FxSymb = randFuncs.listToLongString(sorted(forex_forge.getSymbols()))
         add_utcStamp = datetime.datetime.now(datetime.timezone.utc)
@@ -32,4 +32,4 @@ def symbPage():
     # current coordinated universal time(UTC)
     utcTime = datetime.datetime.now(datetime.timezone.utc)
 
-    return render_template('fxSymb.html', utcTime=utcTime, dbFxList=dbFxList, fxList=rtnFxList)
+    return render_template('symRate.html', utcTime=utcTime, dbFxList=dbFxList, fxList=rtnFxList)
