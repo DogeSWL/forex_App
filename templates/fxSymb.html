@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <p>Current UTC time: {{utcTime}}</p>
-    <p>Forex List Last-Updated: {{dbFxList.lastUpdated}}</p>
-    <p>Forex List:</p>
+   <p>Current UTC time: {{utcTime}}</p>
+   <p>Forex List Last-Updated: {{dbFxList.lastUpdated}} UTC</p>
+   <p>Forex List:</p>
 
-    {% for item in fxList: %}
-       <button type="button" class="btn btn-outline-info fxBtn">{{item}}</button>
-    {% endfor %}
+   {% for item in fxList: %}
+      <button type="button" class="btn btn-outline-info fxBtn">{{item}}</button>
+   {% endfor %}
+
 </div>
 {% endblock %}

@@ -6,7 +6,7 @@ from utilFuncs import randFuncs, forex_forge
 import datetime
 
 @app.route('/fxSymb', methods=['GET'])
-def fxPage():
+def symbPage():
     fxSymb = FxSymbols.query.all()
     aMsg = ""
 
@@ -14,16 +14,18 @@ def fxPage():
     # if table is empty, popluate table with current Forge FX list and UTC time
     if not fxSymb:
         aMsg = "list is empty"
-        add_FxSymb = randFuncs.listToLongString(forex_forge.getSymbols())
+        
+        # get symbols from Forge, sort it alphabetically and then turn list into a string
+        add_FxSymb = randFuncs.listToLongString(sorted(forex_forge.getSymbols()))
         add_utcStamp = datetime.datetime.now(datetime.timezone.utc)
 
         fs = FxSymbols(symbFx=add_FxSymb, lastUpdated=add_utcStamp)
         db.session.add(fs)
         db.session.commit()
     else:
-        dbFxList = FxSymbols.query.filter_by(id=1).first()
+        dbFxList = FxSymbols.query.first()
         rtnFxList = randFuncs.lngStringToList(dbFxList.symbFx)
-        
+
         #removeing empty item in row 0 of list
         rtnFxList.pop(0)
 

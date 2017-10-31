@@ -1,10 +1,6 @@
 from flask import redirect, render_template
 from app import app
-from views import quota, fxSymb
-
-@app.route('/converter')
-def converterPage():
-    return render_template('converter.html')
+from views import quota, fxSymb, fxRate
 
 @app.route('/index')
 def home():
