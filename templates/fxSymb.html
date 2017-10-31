@@ -4,7 +4,9 @@
     <p>Current UTC time: {{utcTime}}</p>
     <p>Forex List Last-Updated: {{dbFxList.lastUpdated}}</p>
     <p>Forex List:</p>
-    <p>{{fxList}}</p>
-   
+
+    {% for item in fxList: %}
+       <button type="button" class="btn btn-outline-info fxBtn">{{item}}</button>
+    {% endfor %}
 </div>
 {% endblock %}
