@@ -3,9 +3,9 @@ $('#fxFilter').keyup(function(){
 
    // show all if no input in filter
    if(aValue == ""){
-      $('.fxSymbols > button').show();
+      $('#fxSymbols > button').show();
    } else {
-      $('.fxSymbols > button').each(function(){
+      $('#fxSymbols > button').each(function(){
          var text = $(this).text().toUpperCase();
 
          // indexOf returns -1 if aValue not in text

@@ -2,6 +2,11 @@
    margin: 60px auto;
 }
 
+#fxForm {
+   margin: 20px auto 20px auto;
+   width: 93%;
+}
+
 #listFilterBox {
    margin: 20px auto 20px auto;
    width: 93%;
@@ -11,15 +16,20 @@
    text-align: right;
 }
 
+#fxSymbols {
+   margin: 20px auto 20px auto;
+   text-align: center;
+}
+
+#fxBtn {
+   width: 90px;
+   text-align: center;
+}
+
 .centerContent {
    text-align: center;
 }
 
 .showLine {
    border: solid black;
-}
-
-.fxBtn {
-   width: 90px;
-   text-align: center;
 }
