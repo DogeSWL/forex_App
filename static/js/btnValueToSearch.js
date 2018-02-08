@@ -11,13 +11,11 @@ $('button').click(function() {
      if (searchVal.length == 0){
        return btnValue;
      }else {
+       var fxArr = searchVal.split(",");
+       var btnIndex = fxArr.indexOf(btnValue);
+
        if(searchVal.match(btnValue)){
-         var fxArr = searchVal.split(",");
-         var btnIndex = fxArr.indexOf(btnValue);
-
-         fxArr = searchVal.split(",");
          fxArr.splice(btnIndex,1);
-
          return fxArr.toString();
          }else {
            return searchVal + "," + btnValue;
