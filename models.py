@@ -19,3 +19,12 @@ class FxSymbols(db.Model):
     def __init__(self, symbFx, lastUpdated):
         self.symbFx = symbFx
         self.lastUpdated = lastUpdated
+
+class MarketStatus(db.Model):
+    id = db.Column(db.INTEGER, primary_key=True)
+    mktStatus = db.Column(db.BOOLEAN)
+    lastUpdated = db.Column(db.TIMESTAMP)
+
+    def __init__(self, mktStatus, lastUpdated):
+        self.mktStatus = mktStatus
+        self.lastUpdated = lastUpdated

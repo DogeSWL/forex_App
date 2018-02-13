@@ -7,7 +7,6 @@ import datetime
 
 @app.route('/symRate', methods=['GET'])
 def symbPage():
-
     dbFxList = FxSymbols.query.first()
     rtnFxList = randFuncs.lngStringToList(dbFxList.symbFx)
 
