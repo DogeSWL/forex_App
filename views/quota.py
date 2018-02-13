@@ -1,7 +1,7 @@
 from flask import render_template, redirect
 from app import app, db
-from utilFuncs import forex_forge
 from models import MarketStatus
+from utilFuncs import forex_forge
 
 import datetime
 
@@ -10,7 +10,7 @@ def quotaPage():
     # query MarketStatus table and grab data in the first row
     mktStatus = MarketStatus.query.first()
 
-    # if table is empty, grab current market status and current utc timezone
+    # if table is empty, grab current market status from Forge and current utc timezone
     # add and commit them into MarketStatus table
     # redirect back to "/quota" route
     if not mktStatus:
