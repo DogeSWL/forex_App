@@ -1,11 +1,11 @@
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 from app import app, db
 from models import FxSymbols
 from utilFuncs import randFuncs, forex_forge
 
 import datetime
 
-@app.route('/symRate', methods=['GET'])
+@app.route('/symRate', methods=['GET', 'POST'])
 def symbPage():
     # query FxSymbols table and grab data in the first row
     dbFxList = FxSymbols.query.first()
@@ -32,4 +32,11 @@ def symbPage():
     # current coordinated universal time(UTC)
     utcTime = datetime.datetime.now(datetime.timezone.utc)
 
-    return render_template('symRate.html', utcTime=utcTime, dbFxList=dbFxList, fxList=rtnFxList)
+    if request.method == 'POST':
+        searchItems = request.form['searchItems']
+        new_searchItems = forex_forge.getFxPairs(searchItems)
+    else:
+        new_searchItems = ""
+
+    return render_template('symRate.html', utcTime=utcTime, dbFxList=dbFxList,
+                            fxList=rtnFxList, new_searchItems=new_searchItems)
