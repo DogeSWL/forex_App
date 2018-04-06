@@ -15,6 +15,16 @@
 
    <p>{{new_searchItems}}</p>
 
+   <!-- list of forex return quote(s) -->
+   {% for item in new_searchItems %}
+   <div class="">
+     <p>{{item['symbol']}}</p>
+     <p>Bid: {{item['bid']}}</p>
+     <p>Ask: {{item['ask']}}</p>
+     <p>Last Price: {{item['price']}}</p>
+   </div>
+   {% endfor %}
+
    <!-- forex label and filter -->
    <div class="row justify-content-between" id="listFilterBox">
       <div class="col-4">
@@ -26,9 +36,9 @@
 
    <!-- list of forex symbols -->
    <div id="fxSymbols">
-      {% for item in fxList: %}
-         <button type="button" id="fxBtn" data-toggle="button" class="btn btn-outline-info" value="{{item}}">{{item}}</button>
-      {% endfor %}
+     {% for fxSymb in fxList: %}
+     <button type="button" id="fxBtn" data-toggle="button" class="btn btn-outline-info" value="{{fxSymb}}">{{fxSymb}}</button>
+     {% endfor %}
    </div>
 
    <p>Forex List Last-Updated: {{dbFxList.lastUpdated}} UTC</p>
